@@ -155,9 +155,6 @@ int main() {
   SetNumThreads(8);
 
   zz_p::init((1LL << 31) - 1);
-  int n = 100000;
-  int k = 8;
-
   zz_p a;
   random(a);
 
