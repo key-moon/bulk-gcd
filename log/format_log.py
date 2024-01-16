@@ -22,7 +22,7 @@ proposed_precalc = [
   [dic[d, k][1] for k in ks]
   for d in ds
 ]
-write_log(proposed_precalc, ["d", *[f'precalc_{k}' for k in ks]], "precalc")
+write_log(proposed_precalc, ["d", *[f'{k=}' for k in ks]], "precalc")
 
 # half_gcd elapsed / proposed_total
 total_compare = [
@@ -31,7 +31,15 @@ total_compare = [
   [dic[d, k][4] for k in ks]
   for d in ds
 ]
-write_log(total_compare, ["d", "half_gcd", *[f'proposed_{k}' for k in ks]], "total_compare")
+write_log(total_compare, ["d", "HalfGCD", *[f'{k=}' for k in ks]], "total_compare")
+
+# gcd ratio
+total_compare = [
+  [d] + 
+  [dic[d, k][3] / dic[d, k][4] for k in ks]
+  for d in ds
+]
+write_log(total_compare, ["d", *[f'{k=}' for k in ks]], "gcd_ratio")
 
 # each details
 for k in ks:
