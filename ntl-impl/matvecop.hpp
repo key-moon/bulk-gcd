@@ -26,7 +26,7 @@ class MatVecOp {
         }\
       }
     if (Parallel and MVMUL_THRESHOLD < deg(a[0][0])) {
-      zz_pContext context; context.save();
+      TContext context; context.save();
       NTL_EXEC_RANGE(n, first, last)
       context.restore();
       LOOP_1(first, last)
@@ -54,7 +54,7 @@ class MatVecOp {
       }
 
     if (Parallel and MMMUL_THRESHOLD < deg(a[0][0]) * n) {
-      zz_pContext context; context.save();
+      TContext context; context.save();
       NTL_EXEC_RANGE(n, first, last)
       context.restore();
       LOOP_2(first, last)
@@ -75,7 +75,7 @@ class MatVecOp {
         a[i] += b[i] * q; \
       }
     if (Parallel and VVADD_THRESHOLD < deg(b[0])) {
-      zz_pContext context; context.save();
+      TContext context; context.save();
       NTL_EXEC_RANGE(n, first, last)
       context.restore();
       LOOP_3(first, last)
