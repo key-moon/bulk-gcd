@@ -10,10 +10,11 @@
 #endif
 
 #ifdef DO_PARALLEL
-using Op=MatVecOp<zz_pX, zz_pContext, true>;
+const bool PARALLEL = true;
 #else
-using Op=MatVecOp<zz_pX, zz_pContext, false>;
+const bool PARALLEL = false;
 #endif
+using Op=MatVecOp<zz_pX, zz_pContext, PARALLEL>;
 
 NTL_CLIENT
 
@@ -152,7 +153,9 @@ void apply_m(Vec<zz_pX>& res, Vec<zz_pX>& polys, Mat<zz_pX>& m) {
 
 int main() {
   setbuf(stdout, NULL);
-  SetNumThreads(8);
+  if (PARALLEL) {
+    SetNumThreads(8);
+  }
 
   zz_p::init((1LL << 31) - 1);
   zz_p a;

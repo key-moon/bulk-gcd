@@ -5,7 +5,7 @@
 
 NTL_CLIENT
 
-const int MMMUL_THRESHOLD = 20000;
+const int MMMUL_THRESHOLD = 10000;
 const int MVMUL_THRESHOLD = 10000;
 const int VVADD_THRESHOLD = 10000;
 
