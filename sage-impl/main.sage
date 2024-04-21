@@ -43,7 +43,7 @@ def reduce(polys: List[Polynomial], mat: Matrix):
 
 def calc_M(polys: List):
   """
-  M * vector(polys) の次数が ceil(d / k) 次程度になるような行列 M を返す
+  M * vector(polys) の要素の次数が ceil(d / k) 次程度になるような行列 M を返す
   計算量: O(k^2 dlog^2d)
   """
   d, k = polys[0].degree(), len(polys)
